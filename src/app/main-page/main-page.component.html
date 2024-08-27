@@ -1,0 +1,12 @@
+<div class="container m-0 p-1">
+    <div class="left-column">
+        <app-side-bar (addressSubmitted)="setAddress($event)"
+            [totalDistance]="dist"
+            [totalDuration]="duration"></app-side-bar>
+    </div>
+    <div class="right-column">
+        <app-maps-bar [markersData]="this.addressList"
+            (routeData)="updateRouteData($event)">
+        </app-maps-bar>
+    </div>
+</div>

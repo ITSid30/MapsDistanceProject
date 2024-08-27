@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html {
+    background-color: rgb(223, 216, 216);
+}
+
+    .container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .left-column {
+    width: 35%; /* Adjust the width as needed */
+    padding: 0px;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+  }
+  
+  .right-column {
+    padding-left: 10px;
+    width: 70%; /* Adjust the width as needed */
+    height: 100vh; /* Full height */
+    position: relative; /* Needed for absolute positioning of the map */
+  }

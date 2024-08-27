@@ -1,0 +1,38 @@
+<hr>
+<div class="form-container me-2">
+    <h2 class="text-center">Multiple Addresses Form</h2>
+    <form [formGroup]="addressForm" (ngSubmit)="submitAddresses()">
+      <div class="form-group">
+        <label for="source">Enter source address:</label>
+        <input formControlName="sourceAddress" id="source" class="form-control" placeholder="XYZ" required />
+      </div>
+      <div class="form-group">
+        <label for="destination">Enter destination address:</label>
+        <input formControlName="destinationAddress" id="destination" class="form-control" placeholder="ABC" required />
+      </div>
+      <div class=" mt-2">
+        <button type="button" (click)="addOrEditAddress()" class="btn btn-secondary me-2">{{ editMode ? 'Save' : 'Add New Address' }}</button>
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+      </div>
+    </form>
+    <div *ngIf="addresses.length > 0" class="address-list mt-3">
+      <h3>Addresses List:</h3>
+      <ul class="list-group">
+        <li *ngFor="let address of addresses; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="container mt-2">
+                <span class="me-2">
+                    {{ address }}
+                </span>
+                <button type="button" (click)="editAddress(i)" class="btn btn-primary btn-sm me-2">Edit</button>
+                <button type="button" (click)="removeAddress(i)" class="btn btn-secondary btn-sm ml-2">Remove</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+    <div *ngIf="isCalculationDone">
+        <h3>Route Total Distance: {{ totalDistance }} km</h3>
+        <h3>Route Total Duration: {{ totalDuration }} mins</h3>
+    </div>
+  </div>
